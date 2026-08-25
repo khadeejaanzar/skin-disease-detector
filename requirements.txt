@@ -1,1 +1,0 @@
-Flask tensorflow==2.20.0 Pillow numpy gunicorn
