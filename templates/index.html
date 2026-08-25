@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkinScan | Skin Lesion Classifier</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Skin<span>Scan</span></div>
+
+        <div class="nav-text">
+            AI-Assisted Skin Lesion Classification
+        </div>
+    </nav>
+
+
+    <main class="container">
+
+        <section class="hero">
+            <p class="tag">AI-POWERED ANALYSIS</p>
+
+            <h1>
+                Understand your skin lesion
+                <span>with AI.</span>
+            </h1>
+
+            <p class="subtitle">
+                Upload a dermoscopic image and let our trained
+                deep-learning model classify it across seven
+                skin-lesion categories.
+            </p>
+        </section>
+
+
+        <!-- Upload Card -->
+        <section class="upload-card">
+
+            <div class="upload-area" id="uploadArea">
+
+                <div class="upload-icon">＋</div>
+
+                <h2>Upload an image</h2>
+
+                <p>
+                    Drag & drop your image here or
+                    <label for="imageInput">browse</label>
+                </p>
+
+                <p class="formats">
+                    JPG, JPEG or PNG
+                </p>
+
+                <input
+                    type="file"
+                    id="imageInput"
+                    accept=".jpg,.jpeg,.png"
+                    hidden
+                >
+
+            </div>
+
+
+            <!-- Image Preview -->
+            <div class="preview-container" id="previewContainer">
+
+                <img id="previewImage" src="" alt="Uploaded image">
+
+                <button id="removeButton" class="remove-btn">
+                    Remove image
+                </button>
+
+            </div>
+
+
+            <button id="analyzeButton" class="analyze-btn">
+                Analyze Image
+            </button>
+
+        </section>
+
+
+        <!-- Loading -->
+        <section class="loading" id="loading">
+
+            <div class="spinner"></div>
+
+            <h3>Analyzing image...</h3>
+
+            <p>
+                Our model is processing your image.
+            </p>
+
+        </section>
+
+
+        <!-- Results -->
+        <section class="results" id="results">
+
+            <div class="result-header">
+                <p class="tag">ANALYSIS COMPLETE</p>
+
+                <h2>Your Results</h2>
+            </div>
+
+
+            <div class="result-grid">
+
+                <!-- Prediction -->
+                <div class="prediction-card">
+
+                    <p class="result-label">
+                        Predicted Class
+                    </p>
+
+                    <h1 id="prediction">
+                        --
+                    </h1>
+
+                    <div class="confidence">
+                        <span>Confidence</span>
+
+                        <strong id="confidence">
+                            --%
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <!-- Probability Chart -->
+                <div class="probability-card">
+
+                    <h3>
+                        Classification probabilities
+                    </h3>
+
+                    <div id="probabilities"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="disclaimer">
+
+                <strong>⚠ Important</strong>
+
+                <p>
+                    This system is an educational/research prototype
+                    and is not intended to provide medical diagnosis.
+                    The results should not replace evaluation by a
+                    qualified healthcare professional.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>
+            SkinScan · Deep Learning Project
+        </p>
+    </footer>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
